@@ -106,22 +106,16 @@ body.page-shell > * {
   letter-spacing: 0.02em;
 }
 
-.brand-mark {
+/* 导航 Logo：替换 web/images/logo.png（或同名 .webp / .svg，需改各页 img 的 src） */
+.brand-logo {
   width: 42px;
   height: 42px;
   border-radius: 11px;
-  background: linear-gradient(
-    145deg,
-    var(--accent-amber-bright) 0%,
-    var(--accent-coral) 55%,
-    var(--accent-rust) 100%
-  );
-  display: grid;
-  place-items: center;
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: #fffdf9;
-  box-shadow: var(--shadow-soft), 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-soft), 0 0 0 1px rgba(212, 160, 58, 0.2);
+  background: rgba(255, 253, 249, 0.6);
 }
 
 .nav-links {
