@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>下载 — Card Strategy Saga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- 背景图文件名：images/bg-download.jpg -->
+    <style>
+      body.page-download {
+        background-image: url("images/bg-download.jpg");
+      }
+    </style>
+  </head>
+  <body class="page-shell page-download">
+    <header class="site-header">
+      <nav class="nav-inner" aria-label="主导航">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">CSS</span>
+          <span>Card Strategy Saga</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="news.html">资讯</a></li>
+          <li><a href="terms.html">使用条款</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="download-hero">
+        <h1 class="page-title">下载游戏</h1>
+        <p class="page-sub">从下方按钮跳转到对应商店。链接在「商店链接配置区」修改。</p>
+      </div>
+
+      <!-- ========== 商店链接配置区：替换 href ========== -->
+      <section class="card-panel" id="ios" style="margin-bottom: 1.5rem">
+        <h2 class="section-label">iOS</h2>
+        <p style="color: var(--text-muted); margin-top: 0">
+          App Store 安装链接：
+        </p>
+        <div class="download-buttons">
+          <a
+            class="btn-store"
+            href="https://apps.apple.com/app/id0000000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            >前往 App Store</a
+          >
+        </div>
+      </section>
+
+      <section class="card-panel" id="android">
+        <h2 class="section-label">Android</h2>
+        <p style="color: var(--text-muted); margin-top: 0">
+          Google Play 或其它分发渠道：
+        </p>
+        <div class="download-buttons">
+          <a
+            class="btn-store secondary"
+            href="https://play.google.com/store/apps/details?id=com.example.cardstrategysaga"
+            target="_blank"
+            rel="noopener noreferrer"
+            >前往 Google Play</a
+          >
+        </div>
+      </section>
+      <!-- ========== 商店链接配置区结束 ========== -->
+
+      <p style="text-align: center; margin-top: 2rem">
+        <a href="index.html" style="color: var(--accent-rust)">← 返回首页</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <p>© Card Strategy Saga. 保留所有权利。</p>
+      <p><a href="terms.html">隐私政策与使用条款</a></p>
+    </footer>
+  </body>
+</html>

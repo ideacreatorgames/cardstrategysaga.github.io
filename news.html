@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>资讯 — Card Strategy Saga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- 背景图文件名：images/bg-news.jpg -->
+    <style>
+      body.page-news {
+        background-image: url("images/bg-news.jpg");
+      }
+    </style>
+  </head>
+  <body class="page-shell page-news">
+    <header class="site-header">
+      <nav class="nav-inner" aria-label="主导航">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">CSS</span>
+          <span>Card Strategy Saga</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="news.html" aria-current="page">资讯</a></li>
+          <li><a href="terms.html">使用条款</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="page-title">游戏资讯</h1>
+      <p class="page-sub">最新动态、玩法介绍与限时活动 — 内容可在本页对应段落直接替换。</p>
+
+      <div class="news-grid">
+        <!-- 区块一：新闻 — 配图文件名 news-feature.jpg -->
+        <article class="news-item">
+          <img src="images/news-feature.jpg" alt="版本更新与新闻配图" width="560" height="350" />
+          <div>
+            <h2>版本更新与平衡调整</h2>
+            <p class="news-meta">新闻 · 2026-03-01</p>
+            <p>
+              在此撰写最新补丁说明、新卡牌或规则微调。将图片替换为
+              <code>images/news-feature.jpg</code> 即可更新头图。
+            </p>
+          </div>
+        </article>
+
+        <!-- 区块二：玩法 — 配图文件名 news-gameplay.jpg -->
+        <article class="news-item">
+          <img src="images/news-gameplay.jpg" alt="核心玩法介绍配图" width="560" height="350" />
+          <div>
+            <h2>核心玩法入门</h2>
+            <p class="news-meta">玩法 · 攻略</p>
+            <p>
+              介绍回合流程、资源管理与卡组构筑思路。配图请使用
+              <code>images/news-gameplay.jpg</code>。
+            </p>
+          </div>
+        </article>
+
+        <!-- 区块三：活动 — 配图文件名 news-event.jpg -->
+        <article class="news-item">
+          <img src="images/news-event.jpg" alt="限时活动配图" width="560" height="350" />
+          <div>
+            <h2>限时活动：赛季挑战</h2>
+            <p class="news-meta">活动 · 进行中</p>
+            <p>
+              活动规则、奖励与时间安排写在这里。活动横幅图请命名为
+              <code>images/news-event.jpg</code> 并替换文件。
+            </p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>© Card Strategy Saga. 保留所有权利。</p>
+      <p><a href="terms.html">隐私政策与使用条款</a></p>
+    </footer>
+  </body>
+</html>

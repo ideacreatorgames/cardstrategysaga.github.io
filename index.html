@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Card Strategy Saga — 首页</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- 背景图文件名：images/bg-home.jpg（可改为 png/webp，需同步修改下方 url） -->
+    <style>
+      body.page-home {
+        background-image: url("images/bg-home.jpg");
+      }
+    </style>
+  </head>
+  <body class="page-shell page-home">
+    <header class="site-header">
+      <nav class="nav-inner" aria-label="主导航">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">CSS</span>
+          <span>Card Strategy Saga</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">首页</a></li>
+          <li><a href="news.html">资讯</a></li>
+          <li><a href="terms.html">使用条款</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Card Strategy Saga</h1>
+        <p class="hero-tagline">策略与益智并重的卡牌冒险 — 运筹帷幄，决胜牌桌。</p>
+
+        <!--
+          视频资源说明（请放入 web/images/ 或改为你的 CDN 绝对地址）：
+          - 主视频文件名称：hero-main.mp4（可上传多个版本时自行命名为 hero-main-2.mp4 等，并改下方 src）
+          - 可选封面图：video-poster.jpg（视频加载前显示）
+        -->
+        <div class="video-wrap" id="heroVideoWrap">
+          <video
+            id="heroVideo"
+            controls
+            playsinline
+            poster="images/video-poster.jpg"
+            preload="metadata"
+          >
+            <source src="images/hero-main.mp4" type="video/mp4" />
+            您的浏览器不支持视频播放。
+          </video>
+          <div class="video-placeholder">
+            请将宣传视频放到 <code>images/hero-main.mp4</code>，或修改上方
+            <code>&lt;source&gt;</code> 的地址。
+          </div>
+        </div>
+
+        <p class="section-label">立即下载</p>
+        <div class="store-row">
+          <!-- 图片文件名：download-ios.png — 点击跳转下载页 -->
+          <div>
+            <a class="store-link" href="download.html#ios" title="前往 iOS 下载">
+              <img
+                src="images/download-ios.png"
+                alt="App Store 下载 Card Strategy Saga"
+                width="320"
+                height="120"
+              />
+            </a>
+            <p class="store-caption">iOS · App Store</p>
+          </div>
+          <!-- 图片文件名：download-android.png — 点击跳转下载页 -->
+          <div>
+            <a class="store-link" href="download.html#android" title="前往 Android 下载">
+              <img
+                src="images/download-android.png"
+                alt="Google Play 下载 Card Strategy Saga"
+                width="320"
+                height="120"
+              />
+            </a>
+            <p class="store-caption">Android · Google Play</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© Card Strategy Saga. 保留所有权利。</p>
+      <p><a href="terms.html">隐私政策与使用条款</a></p>
+    </footer>
+
+    <script>
+      (function () {
+        var v = document.getElementById("heroVideo");
+        var wrap = document.getElementById("heroVideoWrap");
+        if (!v || !wrap) return;
+        v.addEventListener("error", function () {
+          wrap.classList.add("no-src");
+        });
+        if (!v.querySelector("source").getAttribute("src")) wrap.classList.add("no-src");
+      })();
+    </script>
+  </body>
+</html>

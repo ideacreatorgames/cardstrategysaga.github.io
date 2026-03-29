@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>联系我们 — Card Strategy Saga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Outfit:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- 背景图文件名：images/bg-contact.jpg -->
+    <style>
+      body.page-contact {
+        background-image: url("images/bg-contact.jpg");
+      }
+    </style>
+  </head>
+  <body class="page-shell page-contact">
+    <header class="site-header">
+      <nav class="nav-inner" aria-label="主导航">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">CSS</span>
+          <span>Card Strategy Saga</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="news.html">资讯</a></li>
+          <li><a href="terms.html">使用条款</a></li>
+          <li><a href="contact.html" aria-current="page">联系我们</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="page-title">联系我们</h1>
+      <p class="page-sub">以下邮箱与社区链接集中在 <code>contact.html</code> 中，搜索注释「链接配置区」即可批量修改。</p>
+
+      <section class="card-panel contact-grid" aria-label="联系方式">
+        <!-- ========== 链接配置区：替换下方 href 与显示文字 ========== -->
+        <div class="contact-row">
+          <strong>公司邮箱</strong>
+          <a href="mailto:support@cardstrategysaga.example">support@cardstrategysaga.example</a>
+        </div>
+        <div class="contact-row">
+          <strong>Discord</strong>
+          <a href="https://discord.gg/your-invite" target="_blank" rel="noopener noreferrer"
+            >https://discord.gg/your-invite</a
+          >
+        </div>
+        <div class="contact-row">
+          <strong>YouTube</strong>
+          <a href="https://www.youtube.com/@your-channel" target="_blank" rel="noopener noreferrer"
+            >https://www.youtube.com/@your-channel</a
+          >
+        </div>
+        <div class="contact-row">
+          <strong>Instagram</strong>
+          <a href="https://www.instagram.com/yourgame/" target="_blank" rel="noopener noreferrer"
+            >https://www.instagram.com/yourgame/</a
+          >
+        </div>
+        <div class="contact-row">
+          <strong>Twitter / X</strong>
+          <a href="https://twitter.com/yourgame" target="_blank" rel="noopener noreferrer"
+            >https://twitter.com/yourgame</a
+          >
+        </div>
+        <div class="contact-row">
+          <strong>TikTok</strong>
+          <a href="https://www.tiktok.com/@yourgame" target="_blank" rel="noopener noreferrer"
+            >https://www.tiktok.com/@yourgame</a
+          >
+        </div>
+        <!-- ========== 链接配置区结束 ========== -->
+      </section>
+
+      <h2 class="section-label" style="margin-top: 2rem">常见问题</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q">游戏支持哪些平台？</button>
+          <div class="faq-a">
+            请在答案中写明 iOS、Android
+            版本要求与下载方式；也可指向首页下载区。修改本段文字即可。
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">如何反馈 Bug 或建议？</button>
+          <div class="faq-a">
+            建议通过上方邮箱或 Discord
+            提交，并附上设备型号与复现步骤。将本答案替换为你的官方流程。
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">账号与进度会丢失吗？</button>
+          <div class="faq-a">
+            在此说明云存档、游客账号与绑定政策。按需修改文案。
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>© Card Strategy Saga. 保留所有权利。</p>
+      <p><a href="terms.html">隐私政策与使用条款</a></p>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
