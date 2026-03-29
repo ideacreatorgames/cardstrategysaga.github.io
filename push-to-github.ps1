@@ -11,33 +11,41 @@ $RemoteUrl = "https://github.com/ideacreatorgames/cardstrategysaga.github.io.git
 $Root = $PSScriptRoot
 Set-Location $Root
 
-if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-    Write-Host "未找到 git 命令。请先安装 Git 并确保已加入 PATH，然后重新运行本脚本。" -ForegroundColor Red
+$GitExe = $null
+if (Get-Command git -ErrorAction SilentlyContinue) {
+    $GitExe = "git"
+} elseif (Test-Path "C:\Program Files\Git\bin\git.exe") {
+    $GitExe = "C:\Program Files\Git\bin\git.exe"
+}
+if (-not $GitExe) {
+    Write-Host "未找到 git。请安装 Git for Windows: https://git-scm.com/download/win" -ForegroundColor Red
     exit 1
 }
 
+function Invoke-Git { & $GitExe @args }
+
 if (-not (Test-Path ".git")) {
-    git init
-    git branch -M main
+    Invoke-Git init
+    Invoke-Git branch -M main
 }
 
-$hasRemote = git remote get-url origin 2>$null
+$null = Invoke-Git remote get-url origin 2>&1
 if ($LASTEXITCODE -ne 0) {
-    git remote add origin $RemoteUrl
+    Invoke-Git remote add origin $RemoteUrl
 } else {
-    git remote set-url origin $RemoteUrl
+    Invoke-Git remote set-url origin $RemoteUrl
 }
 
-git add -A
-$status = git status --porcelain
+Invoke-Git add -A
+$status = Invoke-Git status --porcelain
 if ([string]::IsNullOrWhiteSpace($status)) {
     Write-Host "没有需要提交的更改。" -ForegroundColor Yellow
 } else {
-    git commit -m "Update Card Strategy Saga site ($(Get-Date -Format 'yyyy-MM-dd HH:mm'))"
+    Invoke-Git commit -m "Update Card Strategy Saga site ($(Get-Date -Format 'yyyy-MM-dd HH:mm'))"
 }
 
 Write-Host "正在尝试推送到 origin main ..." -ForegroundColor Cyan
-git push -u origin main
+Invoke-Git push -u origin main
 if ($LASTEXITCODE -ne 0) {
     Write-Host ""
     Write-Host "推送失败。若远程已有提交，可先执行：" -ForegroundColor Yellow
