@@ -1,5 +1,6 @@
 /* Card Strategy Saga — 暖色现代卡牌风（字体在 HTML 中加载）
    全面响应式：适配 PC / 平板 / 手机
+   修复：移动端视频区域溢出问题，增加全局横向滚动隐藏
 */
 
 :root {
@@ -42,6 +43,18 @@ body {
   line-height: 1.65;
   /* 移动端优化：消除点击高亮（保留原生但提升手感） */
   -webkit-tap-highlight-color: transparent;
+  /* 关键修复：防止任何元素导致横向滚动条 */
+  overflow-x: hidden;
+}
+
+/* 确保所有媒体元素自适应，不溢出父容器 */
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
 }
 
 /* 页面背景：由 body.page-xxx 的 background-image 覆盖 */
@@ -224,6 +237,9 @@ main {
   max-height: 70vh;
   margin: 0 auto 2.5rem;
   box-shadow: var(--shadow-lift), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  /* 确保宽度不超过父容器 */
+  width: 100%;
+  max-width: 100%;
 }
 
 .video-wrap video {
@@ -232,6 +248,9 @@ main {
   object-fit: contain;
   vertical-align: middle;
   display: block;
+  /* 防止视频本身溢出 */
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .video-placeholder {
@@ -613,8 +632,19 @@ main {
     margin-bottom: 1.5rem;
   }
 
+  /* 视频容器在手机上的专项优化 */
   .video-wrap {
     margin-bottom: 1.75rem;
+    /* 确保宽高完全由父容器控制，无溢出 */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px; /* 手机上圆角略小更自然 */
+  }
+
+  .video-wrap video {
+    /* 保证视频内容完全可见，不溢出 */
+    object-fit: contain;
   }
 
   .section-label {
@@ -728,7 +758,7 @@ main {
   }
 
   .video-wrap {
-    border-radius: 12px;
+    border-radius: 10px;
     margin-bottom: 1.25rem;
   }
 
@@ -797,5 +827,9 @@ main {
 
   .hero {
     padding: 0.25rem 0 1rem;
+  }
+
+  .video-wrap {
+    max-height: 60vh; /* 横屏时适当降低高度，避免过高 */
   }
 }
