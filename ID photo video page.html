@@ -1,3 +1,135 @@
-<video width="800" controls>
-  <source src="https://github.com/ideacreatorgames/cardstrategysaga.github.io/blob/main/images/iphone%20video.mp4" type="video/mp4">
-</video>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* 极简样式，仅用于居中和基础布局 */
+        body {
+            font-family: system-ui, 'Segoe UI', monospace;
+            background: #0a0c10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: #1e1f24;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        video {
+            width: 100%;
+            border-radius: 12px;
+            background: #000;
+            outline: none;
+        }
+        .input-area {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        input {
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 14px;
+            background: #2c2f36;
+            border: 1px solid #3e424b;
+            color: #f0f3fa;
+            border-radius: 40px;
+            outline: none;
+            font-family: monospace;
+        }
+        input:focus {
+            border-color: #3b82f6;
+        }
+        button {
+            background: #3b82f6;
+            border: none;
+            padding: 12px 24px;
+            color: white;
+            font-weight: bold;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        .note {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #9ca3af;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 视频播放器，初始src为空或示例（用户可自行填写） -->
+    <video id="myVideo" controls preload="metadata">
+        <source id="videoSource" src="" type="video/mp4">
+        您的浏览器不支持视频标签。
+    </video>
+
+    <div class="input-area">
+        <input type="text" id="videoUrl" placeholder="粘贴视频原始链接 (raw.githubusercontent.com 的 .mp4 地址)" 
+               value="https://raw.githubusercontent.com/ideacreatorgames/cardstrategysaga.github.io/main/images/iphone%20video.mp4">
+        <button id="loadBtn">加载 / 切换</button>
+    </div>
+    <div class="note">
+        💡 提示：在GitHub仓库视频页面点击“Raw”按钮，复制地址栏链接即可。<br>
+        支持 .mp4 / .webm 等格式，确保链接以 .mp4 结尾或为原始文件直链。
+    </div>
+</div>
+
+<script>
+    const video = document.getElementById('myVideo');
+    const source = document.getElementById('videoSource');
+    const input = document.getElementById('videoUrl');
+    const loadBtn = document.getElementById('loadBtn');
+
+    // 解析并更新视频源
+    function loadVideo() {
+        let url = input.value.trim();
+        if (!url) {
+            alert('请输入视频地址');
+            return;
+        }
+        // 简单黑名单提醒
+        if (url.includes('github.com') && !url.includes('raw.githubusercontent.com')) {
+            alert('注意：请使用“Raw”原始链接（通常以 raw.githubusercontent.com 开头）\n当前地址可能无法直接播放。');
+        }
+        // 更换source的src并重新加载
+        source.src = url;
+        video.load();
+        // 可选：自动播放（很多浏览器会限制，我们不做强制）
+        video.play().catch(e => console.log('自动播放被阻止，点击播放即可'));
+    }
+
+    // 按钮点击加载
+    loadBtn.addEventListener('click', loadVideo);
+
+    // 页面初始化时，如果输入框已有示例地址，自动加载一次（方便演示）
+    if (input.value) {
+        loadVideo();
+    }
+
+    // 支持回车键加载
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            loadVideo();
+        }
+    });
+</script>
+</body>
+</html>
